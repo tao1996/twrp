@@ -44,3 +44,4 @@ on fs
     # Set fscklog permission
     chown root system /dev/fscklogs/log
     chmod 0770 /dev/fscklogs/log
+    insmod /vendor/lib/modules/nova_0flash_mmi.ko
