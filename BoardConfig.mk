@@ -81,9 +81,6 @@ BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
 BOARD_INCLUDE_RECOVERY_DTBO := true
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
 
-# fstab
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
-
 # Partition Info
 BOARD_FLASH_BLOCK_SIZE := 262144
 BOARD_USES_PRODUCTIMAGE := true
@@ -100,9 +97,6 @@ BOARD_MOTOROLA_DYNAMIC_PARTITIONS_PARTITION_LIST := product system system_ext ve
 BOARD_MOTOROLA_DYNAMIC_PARTITIONS_SIZE := 6442450944
 BOARD_SUPER_PARTITION_GROUPS := motorola_dynamic_partitions
 BOARD_SUPER_PARTITION_SIZE := 12884901888
-
-# Partitions (listed in the file) to be wiped under recovery.
-TARGET_RECOVERY_WIPE := $(DEVICE_PATH)/recovery.wipe
 
 # Workaround for error copying vendor files to recovery ramdisk
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
