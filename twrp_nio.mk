@@ -29,3 +29,11 @@ PRODUCT_MANUFACTURER := motorola
 
 # Inherit from hardware-specific part of the product configuration
 $(call inherit-product, device/$(PRODUCT_BRAND)/$(PRODUCT_DEVICE)/device.mk)
+
+PRODUCT_SYSTEM_NAME := nio_retcn
+
+# Build info
+BUILD_FINGERPRINT := "motorola/nio_retcn/nio:12/S1RN32.55-16-2/125d6-32b4dd:user/release-keys"
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRIVATE_BUILD_DESC="nio_retcn-user 12 S1RN32.55-16-2 125d6-32b4dd release-keys" \
+    TARGET_PRODUCT=$(PRODUCT_SYSTEM_NAME)
