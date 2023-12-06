@@ -16,7 +16,7 @@
 
 
 cc_library {
-    name: "libgptutils.motorola_kona",
+    name: "librecovery_updater.moto_kona",
     vendor: true,
     recovery_available: true,
     shared_libs: [
@@ -30,10 +30,9 @@ cc_library {
     ],
     srcs: [
         "gpt-utils.cpp",
+        "recovery-ufs-bsg.cpp",
     ],
     owner: "qti",
-    header_libs: [
-        "device_kernel_headers",
-    ],
+    header_libs: ["device_kernel_headers"],
     export_include_dirs: ["."],
 }
