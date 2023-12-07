@@ -47,40 +47,15 @@ TARGET_USES_HARDWARE_QCOM_BOOTCTRL := true
 QCOM_BOARD_PLATFORMS += kona
 
 # Kernel
-BOARD_KERNEL_CMDLINE := \
-    androidboot.console=ttyMSM0 \
-    androidboot.hardware=qcom \
-    androidboot.memcg=1 \
-    androidboot.usbcontroller=a600000.dwc3 \
-    lpm_levels.sleep_disabled=1 \
-    msm_rtb.filter=0x237 \
-    firmware_class.path=/vendor/firmware_mnt/image \
-    service_locator.enable=1 \
-    swiotlb=2048 \
-    video=vfb:640x400,bpp=32,memsize=3072000 \
-    reboot=panic_warm
-
-BOARD_KERNEL_CMDLINE += androidboot.fastboot=1 twrpfastboot=1
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_BASE          := 0x00000000
 TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_CLANG_COMPILE := true
 BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_BOOT_HEADER_VERSION := 3
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
 
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_MKBOOTIMG_ARGS += --pagesize $(BOARD_KERNEL_PAGESIZE)
-
-
-# Kenel dtb
-#TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
-#BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
-
-# Kenel dtbo
-#BOARD_INCLUDE_RECOVERY_DTBO := true
-#BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 100663296
@@ -140,6 +115,11 @@ TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_NO_SCREEN_BLANK := true
 TW_Y_OFFSET := 115
 TW_H_OFFSET := -115
+TW_MAX_BRIGHTNESS := 2047
+ifeq ($(TW_DEFAULT_LANGUAGE),)
+TW_DEFAULT_LANGUAGE := zh_CN
+endif
+TW_DEFAULT_BRIGHTNESS := 300
 
 # Tool
 TW_INCLUDE_REPACKTOOLS := true
